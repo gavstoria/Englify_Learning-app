@@ -18,7 +18,7 @@ const roles = [
   },
 ];
 
-export default function RoleSelection({ selectedRole, setSelectedRole, onContinue }) {
+export default function RoleSelection({ selectedRole, setSelectedRole, onContinue, loading }) {
   return (
     <div className="bg-white p-8 rounded-2xl shadow-md max-w-xl w-full text-center">
       {/* Judul & Deskripsi */}
@@ -42,10 +42,10 @@ export default function RoleSelection({ selectedRole, setSelectedRole, onContinu
       {/* Tombol Continue */}
       <button
         onClick={onContinue}
-        disabled={!selectedRole}
+        disabled={!selectedRole || loading}
         className="mt-6 w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition disabled:opacity-50"
       >
-        Continue
+        {loading ? 'Menyimpan...' : 'Continue'}
       </button>
 
       {/* Step Indicator */}

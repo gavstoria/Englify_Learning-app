@@ -21,16 +21,15 @@ const Register = () => {
             email: email,
             password: password,
             options: {
-                data: {
-                    full_name: fullName,
-                }
+                data: { full_name: fullName },
             }
         });
 
         if (error) {
             setError(error.message);
         } else if (data.user) {
-            navigate('/select-role'); 
+            // Langsung ke pilih role tanpa konfirmasi email
+            navigate('/select-role');
         }
         setLoading(false);
     };
@@ -43,9 +42,7 @@ const Register = () => {
                 redirectTo: `${window.location.origin}/select-role`,
             },
         });
-        if (error) {
-            setError(error.message);
-        }
+        if (error) setError(error.message);
     };
 
     return (
@@ -78,7 +75,7 @@ const Register = () => {
                          <label htmlFor="terms" className="text-sm cursor-pointer">I agree with terms and conditions</label>
                      </div>
                      {error && <p className="text-sm text-red-600 text-center">{error}</p>}
-                     <button type="submit" disabled={loading} className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium transition disabled:bg-gray-400">{loading ? 'Continuing...' : 'Continue'}</button>
+                     <button type="submit" disabled={loading} className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium transition disabled:bg-gray-400">{loading ? 'Sending...' : 'Continue'}</button>
                  </form>
                  <p className="text-sm text-center mt-4">Already have an account? <Link to="/login" className="text-blue-600 font-medium hover:underline">Login</Link></p>
              </div>

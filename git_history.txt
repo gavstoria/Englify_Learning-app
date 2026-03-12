@@ -1,0 +1,29 @@
+a7b5955 HEAD@{0}: commit (merge): Merge development into main and resolve conflicts
+b209585 HEAD@{1}: pull origin main: Fast-forward
+cb547e9 HEAD@{2}: checkout: moving from development to main
+12e21de HEAD@{3}: commit (merge): Merge branch 'fitur/login' into development and resolve conflicts
+f364a06 HEAD@{4}: checkout: moving from fitur/login to development
+df9aa8d HEAD@{5}: checkout: moving from main to fitur/login
+cb547e9 HEAD@{6}: clone: from https://github.com/FhikaFezya2300016122/Projek_DPSI.git
+
+
+a7b5955 Merge development into main and resolve conflicts
+12e21de Merge branch 'fitur/login' into development and resolve conflicts
+b209585 Merge pull request #13 from FhikaFezya2300016122/final.1.0
+5854c28 finishing
+e722802 Merge pull request #12 from FhikaFezya2300016122/fitur/sistem-poin
+0dac2c2 Fitur: Implementasi sistem poin, rank, dan leaderboard
+f10786c update clasroom
+11b5920 Merge pull request #10 from FhikaFezya2300016122/classroom
+9a8d50c Merge pull request #9 from FhikaFezya2300016122/feat/activity
+ffdd6a4 update activity
+5a941c4 Merge pull request #8 from FhikaFezya2300016122/feat/activity_setting
+b920655 dpsi
+2e8c4ee Merge pull request #7 from FhikaFezya2300016122/feat/dashboard_profile_backend
+3a3d26b Merge branch 'main' of https://github.com/FhikaFezya2300016122/Projek_DPSI into feat/dashboard_profile_backend
+e2eb6eb commit
+22bee57 update : remove folder data
+cd1e489 Fitur Update Clasroom
+1f6d1a2 saya telah menambahkan page classroom
+e3be2d4 Merge pull request #6 from FhikaFezya2300016122/feat/register
+8a53346 update register

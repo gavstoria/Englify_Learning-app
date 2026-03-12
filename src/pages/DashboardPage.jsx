@@ -22,21 +22,41 @@ const DashboardPage = () => {
         const fetchProfileData = async () => {
             if (user) {
                 try {
+                    // Gunakan maybeSingle() agar tidak throw error jika profil belum ada
                     const { data, error: profileError } = await supabase
                         .from('profiles')
                         .select('*')
                         .eq('id', user.id)
-                        .single();
+                        .maybeSingle();
 
                     if (profileError) throw profileError;
                     
                     if (data) {
-                        const completeProfile = { ...data, email: user.email };
-                        setProfile(completeProfile);
+                        // Profil ditemukan, gunakan langsung
+                        setProfile({ ...data, email: user.email });
+                    } else {
+                        // Profil belum ada (trigger belum sempat jalan), buat sekarang
+                        const defaultProfile = {
+                            id: user.id,
+                            full_name: user.user_metadata?.full_name || user.email?.split('@')[0] || 'User',
+                            role: localStorage.getItem('selectedRole') || 'student',
+                            total_points: 0,
+                            point_achievement: 0,
+                            games_played: 0,
+                            badge: 'Bronze',
+                        };
+                        const { data: newProfile, error: insertError } = await supabase
+                            .from('profiles')
+                            .insert(defaultProfile)
+                            .select()
+                            .single();
+
+                        if (insertError) throw insertError;
+                        setProfile({ ...newProfile, email: user.email });
                     }
-                } catch (error) {
-                    setError(error.message);
-                    console.error("Error fetching profile:", error.message);
+                } catch (err) {
+                    setError(err.message);
+                    console.error("Error fetching profile:", err.message);
                 }
             }
             setLoading(false);
